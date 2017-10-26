@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bots and Treasure</title>
+    </head>
+    <body class="main">
+        <center>
+            <div id='window'>
+                <h2>Bots and Treasure</h2>
+                <canvas id="mainCanvas"></canvas>
+                <script src="helperfunctions.js"></script>
+                <script src="drawsprites.js"></script>
+                <script src="gameobjects.js"></script>
+                <script src="stageparser.js"></script>
+                <script src="game.js"></script>
+                <script src="stages.js"></script>
+            </div>
+            <h3>Create your own Stage!</h3>
+
+            Sample Stages<br>
+            <div id="sampleStageButtons" style="padding-bottom:5px">
+            </div>
+            <font color="#ff0000"><span id="errorBox"></span></font><br>
+            <button onclick="initGameFromTextArea()">Generate Stage</button>
+            <br>
+            <textarea id="stageTextArea" rows="30" cols="50"></textarea>
+            <div style="padding-bottom:50px">
+                <h2>Instructions:</h2>
+                Bring the treasure back to the home tile to clear the stage!<br>
+                
+                <h3>Bots</h3>
+                You control two bots, <b>BigBot</b> and <b>TinyBot</b>.<br>
+                <b>BigBot</b> can carry objects over land and water.<br>
+                <b>TinyBot</b> can only carry objects over land.<br>
+
+                <h3>Objects</h3>
+                Place <b>Cubes</b> on <b>Buttons</b> to deactivate <b>Security Gates</b>.<br>
+                You cannot pass through an active <b>Security Gate</b> when carrying the <b>Treasure</b>.<br>
+                You can pass through <b>Security Gates</b> otherwise. (even while carrying <b>Cubes</b>)<br>
+                <br>
+                <h3>Movement Controls:</h3>
+                <b>Arrow Keys:</b> Movement<br>
+                <b>Space:</b> Pick Up or Drop Object<br>
+                <b>Shift:</b> Switch Bot<br>
+                <br>
+                <h3>Game Controls:</h3>
+                <b>R or ESC:</b> Restart Game<br>
+            </div>
+
+            <div style="padding-bottom:50px">
+                <h2>How to Create Your Own Stage:</h2>
+                The first few lines is the map tile data.<br>
+                <b>L:</b> Land<br>
+                <b>W:</b> Water<br>
+                <b>B:</b> Blocked Tile<br>
+                <b>C:</b> Cube<br>
+                <b>T:</b> Treasure<br>
+                <b>H:</b> Home Tile<br>
+                <br>
+                The rest of the string is a json.<br>
+                <b>"tinyBot":</b> x, y coordinates of TinyBot's starting position<br>
+                <b>"bigBot":</b> x, y coordinates of BigBot's starting position<br>
+                <b>"gates":</b> A list of gate/button pairs.<br>
+                <br>
+                <b>Format of a gate:</b><br>
+                [[t1x, t1y, t2x, t2y], [bx, by]]<br>
+                The gate will be placed between the tiles (t1x, t1y) and (t2x, t2y).<br>
+                The button corresponding to the gate will be placed at (bx, by)<br>
+            </div>
+        </center>
+        <script type='text/javascript'>window.onLoad = createSampleStageButtons();</script>
+    </body>
+</html>
