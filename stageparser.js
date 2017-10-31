@@ -116,6 +116,10 @@ var Stage = function(stageString) {
             g[1][1] < 0 || g[1][1] >= this.sizeY) {
             throw 'Gate is out of bounds';
         }
+        
+        if (this.tiles[g[0][1]][g[0][0]] == TILE_LAND && this.tiles[g[0][3]][g[0][2]] == TILE_LAND) {
+            throw 'A Gate cannot be built between two land tiles!'
+        }
 
         this.gates.push(new Gate(g[0][0],g[0][1],g[0][2],g[0][3],g[1][0],g[1][1]));
     }
