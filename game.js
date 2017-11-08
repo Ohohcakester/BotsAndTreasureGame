@@ -83,7 +83,7 @@ function initGame() {
 }
 
 function stageClear() {
-    console.log('STAGE CLEAR!');
+    console.log('YOU\'RE WINNER');
     game.stageCleared = true;
 }
 
@@ -142,8 +142,8 @@ function drawFrame() {
     if (game.gameManager != null) {
         game.gameManager.draw();
         if (game.stageCleared) {
-            drawTextCentered('STAGE CLEAR', 80, RES_X/2+4, RES_Y/2+4, '#000000');
-            drawTextCentered('STAGE CLEAR', 80, RES_X/2, RES_Y/2, '#f0ff80');
+            drawTextCentered('YOU\'RE WINNER', 80, RES_X/2+4, RES_Y/2+4, '#000000');
+            drawTextCentered('YOU\'RE WINNER', 80, RES_X/2, RES_Y/2, '#f0ff80');
         }
     }
 }
